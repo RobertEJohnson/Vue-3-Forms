@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>Create an event</h1>
-    <form>
+    <form @submit.prevent="sendForm">
 
       <BaseSelect
         v-model="event.category"
@@ -33,14 +33,13 @@
         placeholder="Location"
       />
       <h3>Are pets allowed?</h3>
-      <div>
-        <input type="radio" v-model="event.pets" :value="1" name="pets" />
-        <label>Yes</label>
-      </div>
 
       <div>
-        <input type="radio" v-model="event.pets" :value="0" name="pets" />
-        <label>No</label>
+        <BaseRadioGroup
+          v-model="event.pets"
+          name="pets"
+          :options="petOptions"
+        />
       </div>
 
       <h3>Extras</h3>
@@ -66,6 +65,8 @@
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
   data () {
     return {
@@ -88,7 +89,26 @@ export default {
           catering: false,
           music: false
         }
-      }
+      },
+      petOptions: [
+        { label: 'Yes', value: 1 },
+        { label: 'No', value: 0 }
+      ]
+    }
+  },
+  methods: {
+    sendForm () {
+      // we will handle submission here!
+      axios.post(
+        'https://my-json-server.typicode.com/Code-Pop/Vue-3-Forms/events',
+        this.event
+      )
+        .then(function (response) {
+          console.log('Response', response)
+        })
+        .catch(function (err) {
+          console.log('Error', err)
+        })
     }
   }
 }
