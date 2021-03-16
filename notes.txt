@@ -86,3 +86,18 @@ Checkboxes
 	-defaults to :on
 
 	inputs with type of textbox DO NOT trigger @input events, but rather @change events upon selection change
+
+--
+Radio Buttons
+
+	What makes them special:
+		-they don't work as single elements
+		- they work as a group that shares a state
+
+	They dont bind to value, they bind to CHECKED
+	
+	They need a value which will correlate to whether they are checked or unchecked
+		- We should pair modelValue to the value to see if its checked or unchecked
+			- modelValue: 'cat'
+			- value: 'cat'
+				- therefore it is checked
