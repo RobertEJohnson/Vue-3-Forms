@@ -6,11 +6,13 @@
     @change="$emit('update:modelValue', value)"
     name="name"
     v-bind="$attrs"
+    :id='uuid'
   />
-  <label v-if="label">{{ label }}</label>
+  <label v-if="label" :for="uuid">{{ label }}</label>
 </template>
 
 <script>
+import UniqueID from '../features/UniqueID'
 export default {
   props: {
     name: {
@@ -29,6 +31,12 @@ export default {
       type: [String, Number],
       // Radio buttons need a value
       required: true
+    }
+  },
+  setup () {
+    const uuid = UniqueID().getID()
+    return {
+      uuid
     }
   }
 }

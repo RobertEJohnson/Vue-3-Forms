@@ -125,6 +125,22 @@ Accessability
 			<input>
 		</label>
 
-		Or we can do this with Id's
+		Or we can do this with id's and for attributes!
 
-		
+		--
+
+		Creating a (uuid) Universally Unique Identifier is another route for us to make more automated input associations for 'for' attributes on labels and 'id' attributes on inputs
+
+		You can see one simple uuid generator made in features/UniqueId.js
+
+			Its as simple to use as importing it, calling its function, then the property function within to iterate to a new unique id
+
+--
+
+		aria-describedby attribute is a great way for us associate some descriptive text id with an element
+
+			This can be done like this
+
+			<input :id="uuid" aria-describedby=`${uuid}-error`>
+
+			<p :id=`${uuid}-error`>descriptive text</p>
