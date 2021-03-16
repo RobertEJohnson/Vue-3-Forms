@@ -101,3 +101,30 @@ Radio Buttons
 			- modelValue: 'cat'
 			- value: 'cat'
 				- therefore it is checked
+
+--
+
+Accessability
+
+	Don't forget to add type for input elements
+		- THis helps screen readers reasons for the input
+		- Also sometimes on mobile devices type will show the information in a separate way, like type="tel" will be open a keypad to type the numbers on
+	
+	Use of fieldset and legend
+		Even though labels are readable for sections of your form, it is nice to group relevant form sections with fieldset for accessability
+
+		This allows assistive technology users to know what groups of from elements will be gathering
+			Within the first element of the form we should include a legend which will hold the legend
+
+	Do NOT rely on Placeholders, placeholders should show intended info they dont replace labels
+
+		One thing we can do is this
+
+		<label>
+			Cats
+			<input>
+		</label>
+
+		Or we can do this with Id's
+
+		
