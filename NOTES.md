@@ -24,4 +24,51 @@ Whenever you pass down attributes in Vue, vue will try and figureout where to in
 			<input/>			 <---- or here??? 
 		</template>
 
-	With multipe root level elements, we have to manually bind the $attr
+	With multiple root level elements, we have to manually bind the $attr, 
+		<input
+			```v-bind="$attrs"```
+
+
+			:placeholder="label"
+			class="field"
+			:value="modelValue"
+			@input="$emit('update:modelValue', $event.target.value)"
+  />
+
+--
+
+Select Forms
+
+	-Fire a @change event every time an option is selected.
+	-We wil also have to bind $attrs
+		-which we will bind with a v-bind
+
+	Since $attrs is a Javascript Object, we can use the spread operator to combine binds.
+
+	v-bind="{
+						...$attrs,
+						onChange: ($event) => {
+							$emit('update:modelValue', $event.target.value)
+						}
+					}"
+
+In Vue 3 we can use onChange to bind within a v-bind directive as opposed to @change, the v-on shorthand
+
+--
+v-model
+
+	By default in Vue 3x using v-model is doing two things:
+		1. passing a modelValue prop.
+		2. emitting an update:modelValue event.
+
+	To change a model name, instead of just using v-model we add an argument with :
+		1. so for example v-model:title has an argument of title
+			1. passes a title prop
+			2. emits a update:title event
+
+
+	<input v-model:title="pageTitle"> 
+
+	is equivalent to
+					v-bind: "title"  v-on update of title = set pageTitle to event, typically $event.target.value
+	<input :title="pageTitle" @update:title="pageTitle = $event">

@@ -21,6 +21,6 @@ export default {
       type: [String, Number],
       default: ''
     }
-  },
+  }
 }
 </script>

@@ -2,17 +2,12 @@
   <div>
     <h1>Create an event</h1>
     <form>
-      <label>Select a category</label>
-      <select v-model="event.category">
-        <option
-          v-for="option in categories"
-          :value="option"
-          :key="option"
-          :selected="option === event.category"
-        >
-          {{ option }}
-        </option>
-      </select>
+
+      <BaseSelect
+        v-model="event.category"
+        label="Select a category"
+        :options="categories"
+      />
 
       <h3>Name & describe your event</h3>
 
@@ -37,15 +32,6 @@
         type="text"
         placeholder="Location"
       />
-
-      <!-- <label>Location</label>
-      <input
-        v-model="event.location"
-        type="text"
-        placeholder="Location"
-        class="field"S
-      /> -->
-
       <h3>Are pets allowed?</h3>
       <div>
         <input type="radio" v-model="event.pets" :value="1" name="pets" />
