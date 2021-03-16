@@ -144,3 +144,21 @@ Accessability
 			<input :id="uuid" aria-describedby=`${uuid}-error`>
 
 			<p :id=`${uuid}-error`>descriptive text</p>
+
+--
+
+aria-live="assertive" will alert screen-readers of invalid forms messages (descriptive texts)
+
+--
+
+aria-invalid="true" or aria-invalid="false"
+
+is a great way to let assistive technology know if a form is invalid or not
+
+-- 
+
+Do NOT disable form submit buttons, If we disable a button assistive technology like screen readers will skip entirely over the button!
+
+	This means the button will be completely ignored!
+
+A better alternative is to do all checks for input submissions

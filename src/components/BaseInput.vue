@@ -14,6 +14,8 @@
     :id="`${uuid}-error`"
     v-if="error"
     class="errorMessage"
+    aria-live="assertive"
+    aria-invalid="error ? true : null"
   >
     {{ error }}
   </p>
