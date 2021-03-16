@@ -72,3 +72,17 @@ v-model
 	is equivalent to
 					v-bind: "title"  v-on update of title = set pageTitle to event, typically $event.target.value
 	<input :title="pageTitle" @update:title="pageTitle = $event">
+
+
+--
+Auto-import
+
+Manually importing gets repetitive, we can do this automatically! Take a look at main.js
+
+--
+Checkboxes
+
+	-use :checked not :value
+	-defaults to :on
+
+	inputs with type of textbox DO NOT trigger @input events, but rather @change events upon selection change
