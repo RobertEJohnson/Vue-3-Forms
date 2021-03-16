@@ -22,6 +22,7 @@
           label="Description"
           placeholder="Description"
           type="text"
+          error="This input has an error"
         />
       </fieldset>
 
@@ -32,6 +33,7 @@
           label="Location"
           type="text"
           placeholder="Location"
+          error="This input has an error"
         />
       </fieldset>
       <fieldset>
